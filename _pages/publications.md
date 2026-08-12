@@ -31,7 +31,7 @@ Zixuan Ding, Yihe Duan, Ding Wang*. HP-OTP: <strong>One-Time Password</strong> 
 <br><br>
 Ding Wang, Tongxin Wei, Zhenduo Hou*. On the User Friendliness of <strong>Password Creation Policy Designs</strong> in the Wild, SCIENCE CHINA: Information Sciences (<strong>SCIS</strong>), 2026, 69(4), Article No.142105, pp. 1-16 &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/scis25-n1-final.pdf">pdf</a></u>
 <br><br>
-Yifei Zhang, Zhenduo Hou*, Ding Wang. VersaPSE: Versatile <strong>Password Strength Evaluation</strong> Using Continual Learning. International Symposium on Research in Attacks, Intrusions and Defenses (<strong>RAID 2026</strong>), Accepted. &nbsp;&nbsp;<u><a href="">pdf</a></u>
+Yifei Zhang, Zhenduo Hou*, Ding Wang. VersaPSE: Versatile <strong>Password Strength Evaluation</strong> Using Continual Learning. International Symposium on Research in Attacks, Intrusions and Defenses (<strong>RAID 2026</strong>), Accepted. &nbsp;&nbsp;<u><a href="https://github.com/FeliceRivarez/VersaPSE_code" target="_blank">codes</a></u> &nbsp;&nbsp;<u><a href="">pdf</a></u>
 <br><br>
 Mi Song, Ding Wang*, Guanling Li, Zhen Li. Verifiable <strong>Compromised Credential Checking</strong>. IEEE Transactions on Information Forensics and Security (<strong>TIFS</strong>), 2026, Doi: 10.1109/TIFS.2026.3715105. &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/verC3-tifs26-v1.pdf">pdf</a></u>
 <br><br>
