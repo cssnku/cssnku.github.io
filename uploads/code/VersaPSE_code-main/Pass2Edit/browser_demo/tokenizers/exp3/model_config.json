@@ -1,0 +1,11 @@
+{
+  "MAX_LEN": 30,
+  "SEQ_LEN": 32,
+  "num_embeddings": 54,
+  "type_num": 861,
+  "BOS_TOKEN": 0,
+  "EOS_TOKEN": 1,
+  "PAD_TOKEN": 2,
+  "DEL_TOKEN": 3,
+  "CHAR_OFFSET": 4
+}

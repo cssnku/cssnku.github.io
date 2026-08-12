@@ -1,0 +1,10 @@
+123456	123456	123456!
+qwerty	qwerty	qwerty-
+asdfasdf	asdfasdf	asdfgh
+123123	123123	!@#$%^
+asdfgh	asiaccs	AsiaCCS
+123123	123123123	123123
+password	password	p@ssword
+password	123991!@#	123991!@#
+password	passwords	mypasswords
+helloworld	hello!	hello123

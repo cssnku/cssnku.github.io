@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VersaPSE: Versatile Password Strength Evaluation Using Continual Learning</title>
+    <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        h1 { color: #333; text-align: center; }
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .input-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; color: #555; }
+        input {
+            width: 100%; padding: 10px; box-sizing: border-box;
+            border: 2px solid #ddd; border-radius: 4px; font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        input:focus { border-color: #4CAF50; outline: none; }
+        select {
+            width: 100%; padding: 10px; box-sizing: border-box;
+            border: 2px solid #ddd; border-radius: 4px; font-size: 16px;
+            background: white; color: #333;
+            transition: border-color 0.3s;
+        }
+        select:focus { border-color: #4CAF50; outline: none; }
+        button {
+            padding: 12px 24px; background-color: #4CAF50; color: white;
+            border: none; border-radius: 4px; cursor: pointer; font-size: 16px;
+            margin-right: 10px; margin-top: 10px; transition: background 0.3s;
+        }
+        button:hover { background-color: #45a049; }
+        button:disabled { background-color: #ccc; cursor: not-allowed; }
+        button.secondary { background-color: #2196F3; }
+        button.secondary:hover { background-color: #0b7dda; }
+
+        #result, #calculation-steps { display: none; }
+
+        #steps-output {
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 13px;
+            white-space: pre-wrap;
+            max-height: 400px;
+            overflow-y: auto;
+            background: #fafafa;
+            padding: 12px;
+            border-radius: 4px;
+        }
+
+        .progress-container {
+            display: flex; align-items: center; margin: 15px 0;
+        }
+        .progress-bar {
+            flex-grow: 1; height: 24px; background-color: #f0f0f0;
+            border-radius: 12px; overflow: hidden; margin: 0 12px;
+            position: relative;
+        }
+        .progress-fill {
+            height: 100%; width: 0%; transition: width 0.5s ease;
+            border-radius: 12px;
+        }
+        .progress-score {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            font-weight: bold; font-size: 13px; color: #333;
+            text-shadow: 0 0 4px rgba(255,255,255,0.9);
+            z-index: 2; pointer-events: none;
+        }
+        .progress-label, .strength-label { font-weight: bold; min-width: 80px; }
+
+        .good    { background-color: #4CAF50; }
+        .medium  { background-color: #FFC107; }
+        .weak    { background-color: #FF9800; }
+        .very-weak { background-color: #F44336; }
+
+        #crack-rate-analysis {
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        #status-bar {
+            text-align: center; padding: 8px; color: #888; font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <h1>VersaPSE: Versatile Password Strength Evaluation Using Continual Learning</h1>
+
+    <div class="card">
+        <div class="input-group">
+            <label for="source-password">Source Password (optional):</label>
+            <input type="text" id="source-password" placeholder="e.g. password123">
+        </div>
+        <div class="input-group">
+            <label for="target-password">Target Password:</label>
+            <input type="text" id="target-password" placeholder="Enter target password" required>
+        </div>
+        <div id="status-bar">Loading model &amp; resources...</div>
+
+        <div id="crack-rate-analysis">
+            <div class="progress-container">
+                <div class="progress-label">Overall Strength:</div>
+                <div class="progress-bar">
+                    <div id="strength-progress-overall" class="progress-fill"></div>
+                    <span id="strength-score-overall" class="progress-score">--/100</span>
+                </div>
+                <div id="strength-label-overall" class="strength-label">--</div>
+            </div>
+            <div>
+                <button id="calculate-btn">Calculate Probability</button>
+                <button id="toggle-steps-btn" class="secondary">Show Steps</button>
+            </div>
+            <h3>Strength Analysis:</h3>
+            <p>Provided source strength (tar dist): <strong><span id="crack-rate-provided">--</span></strong> / 100</p>
+            <div class="progress-container">
+                <div class="progress-label">Provided:</div>
+                <div class="progress-bar">
+                    <div id="strength-progress-provided" class="progress-fill"></div>
+                </div>
+                <div id="strength-label-provided" class="strength-label">--</div>
+            </div>
+            <p>Matched source strength (pop dist): <strong><span id="crack-rate-matched">--</span></strong> / 100</p>
+            <div class="progress-container">
+                <div class="progress-label">Matched:</div>
+                <div class="progress-bar">
+                    <div id="strength-progress-matched" class="progress-fill"></div>
+                </div>
+                <div id="strength-label-matched" class="strength-label">--</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" id="calculation-steps">
+        <h3>Calculation Steps:</h3>
+        <div id="steps-output"></div>
+    </div>
+
+    <div class="card" id="model-selection">
+        <h3>Model Selection:</h3>
+        <div class="input-group">
+            <label for="exp-select">Select Experiment Checkpoint (exp 1-8):</label>
+            <select id="exp-select">
+                <option value="1">exp1</option>
+                <option value="2">exp2</option>
+                <option value="3">exp3</option>
+                <option value="4">exp4</option>
+                <option value="5">exp5</option>
+                <option value="6">exp6</option>
+                <option value="7">exp7</option>
+                <option value="8">exp8</option>
+            </select>
+        </div>
+        <div>
+            <button id="load-model-btn" class="secondary">Load Model &amp; Resources</button>
+        </div>
+        <div id="model-status-bar">
+            Loading model &amp; resources...
+        </div>
+    </div>
+
+    <div class="card" id="result">
+        <h3>Results:</h3>
+        <p>Probability (provided source): <strong><span id="prob-provided"></span></strong></p>
+        <p>Probability (matched source): <strong><span id="prob-matched"></span></strong></p>
+        <p>Matched source password: <strong><span id="matched-source"></span></strong></p>
+        <p>Similarity score: <strong><span id="similarity-score"></span></strong></p>
+        <div id="probability-position-info"></div>
+    </div>
+
+    <script>
+        // ============ Global State ============
+        let modelSession = null;
+        let keyboardCharset = "";
+        let editOpTokenizer = {};
+        let modelConfig = {};
+        let passwordList = [];
+        let currentExp = 1;
+        // Per-experiment probability distributions
+        // - pop:  distributions of probabilities computed from the matched pop pair
+        // - tar:  distributions of probabilities computed from the given (optional) password pair
+        let successfulPopProbs = [];
+        let unsuccessfulPopProbs = [];
+        let successfulTarProbs = [];
+        let unsuccessfulTarProbs = [];
+
+        // ============ Initialization ============
+        async function loadResources(exp) {
+            const statusBar = document.getElementById('status-bar');
+            const modelStatus = document.getElementById('model-status-bar');
+            // Re-show the status-bar hint whenever a new experiment is loaded
+            statusBar.style.display = 'block';
+            currentExp = exp;
+
+            // Disable actions while loading
+            document.getElementById('calculate-btn').disabled = true;
+            document.getElementById('load-model-btn').disabled = true;
+
+            try {
+                // 1. Load tokenizer / charset / config for this exp
+                modelStatus.textContent = `Loading exp${exp} tokenizer & settings...`;
+                const tokResp = await fetch(`./tokenizers/exp${exp}/edit_op_tokenizer.json`);
+                const tokData = await tokResp.json();
+                editOpTokenizer = tokData.edit2id;
+                console.log(`exp${exp} edit tokenizer: ${Object.keys(editOpTokenizer).length} ops`);
+
+                const charsetResp = await fetch(`./tokenizers/exp${exp}/keyboard_charset.json`);
+                const charsetData = await charsetResp.json();
+                keyboardCharset = charsetData.charset;
+                console.log(`exp${exp} keyboard charset: ${keyboardCharset.length} chars`);
+
+                const cfgResp = await fetch(`./tokenizers/exp${exp}/model_config.json`);
+                modelConfig = await cfgResp.json();
+                console.log(`exp${exp} model config:`, modelConfig);
+
+                // 2. Load password list: exp1-4 -> Tianya, exp5-8 -> Rockyou
+                const listName = (exp >= 1 && exp <= 4) ? 'Tianya_top1000' : 'Rockyou_top1000';
+                modelStatus.textContent = `Loading password list (${listName.split('_')[0]})...`;
+                const pwdResp = await fetch(`./top_list/${listName}.txt`);
+                if (pwdResp.ok) {
+                    const text = await pwdResp.text();
+                    passwordList = text.split('\n').filter(p => p.trim() !== '');
+                } else {
+                    console.warn(`${listName}.txt not found, using defaults`);
+                    passwordList = ["password","123456","12345678","qwerty","letmein","dragon","monkey","football","baseball"];
+                }
+                console.log(`Loaded ${passwordList.length} passwords from ${listName}`);
+
+                // 3. Load probability distributions for this exp
+                const loadProbs = async (path) => {
+                    try {
+                        const resp = await fetch(path);
+                        if (!resp.ok) return [];
+                        const txt = await resp.text();
+                        return txt.split('\n').filter(l => l.trim()).map(parseFloat).filter(v => !isNaN(v)).sort((a, b) => b - a);
+                    } catch (e) {
+                        console.warn(`${path}: ${e.message}`);
+                        return [];
+                    }
+                };
+                modelStatus.textContent = `Loading probability distributions...`;
+                successfulPopProbs   = await loadProbs(`./prob_files/exp${exp}/successful_pop.txt`);
+                unsuccessfulPopProbs = await loadProbs(`./prob_files/exp${exp}/unsuccessful_pop.txt`);
+                successfulTarProbs   = await loadProbs(`./prob_files/exp${exp}/successful_tar.txt`);
+                unsuccessfulTarProbs = await loadProbs(`./prob_files/exp${exp}/unsuccessful_tar.txt`);
+                console.log(`exp${exp} probs: pop(suc=${successfulPopProbs.length}, unsuc=${unsuccessfulPopProbs.length}), tar(suc=${successfulTarProbs.length}, unsuc=${unsuccessfulTarProbs.length})`);
+
+                // 4. Load ONNX model
+                modelStatus.textContent = `Loading exp${exp} ONNX model...`;
+                modelSession = await ort.InferenceSession.create(`./onnx_models/exp${exp}_model.onnx`);
+                console.log(`exp${exp} ONNX model loaded:`, modelSession.inputNames, modelSession.outputNames);
+
+                modelStatus.textContent = `exp${exp} loaded (${listName.split('_')[0]} top list). Ready.`;
+                statusBar.textContent = 'Ready. Enter a password and click Calculate.';
+                return true;
+            } catch (error) {
+                console.error('Load error:', error);
+                modelStatus.textContent = 'ERROR: ' + error.message;
+                return false;
+            } finally {
+                document.getElementById('load-model-btn').disabled = false;
+                document.getElementById('calculate-btn').disabled = false;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', async function() {
+            // Model selection button
+            document.getElementById('load-model-btn').addEventListener('click', async function() {
+                const exp = parseInt(document.getElementById('exp-select').value, 10);
+                const btn = this;
+                btn.disabled = true;
+                btn.textContent = 'Loading...';
+                await loadResources(exp);
+                btn.textContent = 'Load Model & Resources';
+            });
+
+            // Load default experiment (exp1)
+            await loadResources(1);
+        });
+
+        // ============ Keyboard Mapping ============
+        const SHIFT = '\x03';
+        const CAPS  = '\x04';
+
+        // Characters that need Shift on a US QWERTY keyboard
+        const SHIFT_MAP = {
+            '!':'1','@':'2','#':'3','$':'4','%':'5','^':'6','&':'7','*':'8','(':'9',')':'0',
+            '_':'-','+':'=','~':'`','{':'[','}':']','|':'\\',':':';','"':"'",'<':',','>':'.','?':'/'
+        };
+
+        function wordToKeyseq(word) {
+            let result = '';
+            let capsActive = false;
+
+            for (let i = 0; i < word.length; i++) {
+                const c = word[i];
+
+                if (c >= 'A' && c <= 'Z') {
+                    // Count consecutive uppercase
+                    let upCount = 1;
+                    while (i + upCount < word.length && word[i + upCount] >= 'A' && word[i + upCount] <= 'Z') {
+                        upCount++;
+                    }
+                    if (upCount >= 3) {
+                        if (!capsActive) { result += CAPS; capsActive = true; }
+                        for (let j = 0; j < upCount; j++) result += word[i + j].toLowerCase();
+                        i += upCount - 1;
+                    } else if (upCount === 2) {
+                        result += SHIFT + word[i].toLowerCase();
+                        result += SHIFT + word[i+1].toLowerCase();
+                        i++;
+                    } else {
+                        result += SHIFT + c.toLowerCase();
+                    }
+                } else if (c >= 'a' && c <= 'z') {
+                    if (capsActive) { result += CAPS; capsActive = false; }
+                    result += c;
+                } else if (c >= '0' && c <= '9') {
+                    result += c;
+                } else {
+                    if (SHIFT_MAP.hasOwnProperty(c)) {
+                        result += SHIFT + SHIFT_MAP[c];
+                    } else {
+                        result += c;
+                    }
+                }
+            }
+            return result;
+        }
+
+        // ============ Character-level Tokenization (pw2token) ============
+        function pw2token(pw) {
+            pw = pw.replace(/\n$/, '');
+            const tokens = [modelConfig.BOS_TOKEN];  // BOS=0
+
+            for (const c of pw) {
+                if (c === '\xde') {
+                    tokens.push(modelConfig.DEL_TOKEN);  // DEL=3
+                } else {
+                    const idx = keyboardCharset.indexOf(c);
+                    tokens.push(modelConfig.CHAR_OFFSET + (idx >= 0 ? idx : 0));
+                }
+            }
+
+            tokens.push(modelConfig.EOS_TOKEN);  // EOS=1
+
+            // Pad to SEQ_LEN
+            const seqLen = modelConfig.SEQ_LEN;
+            while (tokens.length < seqLen) tokens.push(modelConfig.PAD_TOKEN);
+            if (tokens.length > seqLen) tokens.length = seqLen;
+
+            return tokens;
+        }
+
+        // ============ Edit Distance + Transformation ============
+        function transformation(pwd, tar) {
+            // DP matrix
+            const dp = [];
+            for (let i = 0; i <= pwd.length; i++) {
+                const row = [];
+                if (i === 0) {
+                    for (let j = 0; j <= tar.length; j++) row.push(j);
+                    dp.push(row); continue;
+                }
+                for (let j = 0; j <= tar.length; j++) {
+                    if (j === 0) { row.push(i); continue; }
+                    if (pwd[i-1] === tar[j-1]) {
+                        row.push(dp[i-1][j-1]);
+                    } else {
+                        row.push(Math.min(row[j-1], dp[i-1][j]) + 1);
+                    }
+                }
+                dp.push(row);
+            }
+
+            // Backtrack
+            const pseudoPath = [];
+            let curr = [pwd.length, tar.length];
+            while (curr[0] !== 0 || curr[1] !== 0) {
+                if (curr[0] === 0) {
+                    pseudoPath.unshift([1, curr[0], tar[curr[1]-1]]);
+                    curr[1]--; continue;
+                }
+                if (curr[1] === 0) {
+                    pseudoPath.unshift([0, curr[0]-1]);
+                    curr[0]--; continue;
+                }
+                if (pwd[curr[0]-1] === tar[curr[1]-1]) {
+                    curr[0]--; curr[1]--; continue;
+                }
+                if (dp[curr[0]][curr[1]-1] > dp[curr[0]-1][curr[1]]) {
+                    pseudoPath.unshift([0, curr[0]-1]);
+                    curr[0]--;
+                } else {
+                    pseudoPath.unshift([1, curr[0], tar[curr[1]-1]]);
+                    curr[1]--;
+                }
+            }
+            pseudoPath.push([2, 0]); // EOS
+
+            // Convert to path with offsets
+            const path = [];
+            let original = [...pwd, '\n'];
+            let currPwd = [...pwd, '\n'];
+            let offset = 0, tempOffset = 0, lastDel = -100;
+
+            for (const op of pseudoPath) {
+                let idx = op[1] + offset;
+                if (op[0] === 0) {
+                    if (op[1] - lastDel !== 1) {
+                        offset = Math.max(tempOffset, offset);
+                        tempOffset = offset;
+                        idx = op[1] + tempOffset;
+                    }
+                    currPwd[op[1] + tempOffset] = '\xde';
+                    idx = op[1] + tempOffset;
+                    offset--; lastDel = op[1];
+                    path.push([0, idx]);
+                } else if (op[0] === 1) {
+                    if (op[1] - lastDel !== 1) {
+                        offset = Math.max(tempOffset, offset);
+                        tempOffset = offset;
+                        idx = op[1] + offset;
+                    }
+                    if (currPwd[idx] !== '\xde') {
+                        currPwd.splice(idx, 0, op[2]);
+                        original.splice(idx, 0, '\xde');
+                    } else {
+                        currPwd[idx] = op[2];
+                    }
+                    offset++;
+                    path.push([1, idx, op[2]]);
+                } else {
+                    path.push(op);
+                }
+                while (original.length < 30) { original.push('\xde'); currPwd.push('\xde'); }
+            }
+            return path;
+        }
+
+        function trans2seq(path) {
+            const seq = [];
+            for (const op of path) {
+                let s = '<';
+                for (let i = 0; i < op.length; i++) {
+                    s += op[i];
+                    if (i < op.length - 1) s += '\uff0c';  // Chinese comma
+                }
+                s += '>';
+                seq.push(s);
+            }
+            return seq;
+        }
+
+        // ============ Edit Tokenization ============
+        function seqs2Tokens(seqs) {
+            const result = [];
+            for (const seq of seqs) {
+                const tokens = [1]; // BOS for edit tokenizer
+                for (const edit of seq) {
+                    tokens.push(editOpTokenizer[edit] !== undefined ? editOpTokenizer[edit] : 0);
+                }
+                const maxLen = modelConfig.SEQ_LEN;
+                if (tokens.length > maxLen) tokens.length = maxLen - 1;
+                tokens.push(2); // EOS
+                while (tokens.length < maxLen) tokens.push(2); // pad with EOS
+                result.push(tokens);
+            }
+            return result;
+        }
+
+        // pass2edit: decompose path into per-step (original, current, single_op) triples
+        function pass2edit(pwd, seq) {
+            const pairs = [];
+            let original = [...pwd, '\n'];
+            let curr = [...pwd, '\n'];
+            const trans = seq2trans(seq);
+
+            for (const op of trans) {
+                const stepOrig = [...original];
+                const stepCurr = [...curr];
+
+                if (op[0] === 0) {
+                    curr[op[1]] = '\xde';
+                } else if (op[0] === 1) {
+                    if (curr[op[1]] !== '\xde') {
+                        curr.splice(op[1], 0, op[2]);
+                        original.splice(op[1], 0, '\xde');
+                    } else {
+                        curr[op[1]] = op[2];
+                    }
+                } else {
+                    continue; // EOS
+                }
+
+                // Trim trailing padding
+                let o = stepOrig.join('');
+                let c = stepCurr.join('');
+                while (o.length > 30 && o[o.length-1] === '\xde' && c[c.length-1] === '\xde') {
+                    o = o.slice(0, -1); c = c.slice(0, -1);
+                }
+
+                pairs.push([o, c, op]);
+            }
+            return pairs;
+        }
+
+        function seq2trans(seq) {
+            const path = [];
+            // seq is either:
+            //   - an array of edit-op strings like ["<0，5>", "<1，3，a>", ...]  (from trans2seq)
+            //   - a single string with ops joined by '\xa1' (legacy format)
+            const parts = Array.isArray(seq)
+                ? seq
+                : String(seq).split('\xa1').filter(s => s);
+            for (const part of parts) {
+                const inner = part.replace(/^</,'').replace(/>$/,'');
+                const fields = inner.split('\uff0c'); // Chinese comma
+                const op = [];
+                if (fields[0] === '2') {
+                    op.push(2, parseInt(fields[1]));
+                } else if (fields[0] === '1') {
+                    op.push(1, parseInt(fields[1]), fields[2]);
+                } else {
+                    op.push(0, parseInt(fields[1]));
+                }
+                path.push(op);
+            }
+            return path;
+        }
+
+        // ============ Two-gram Cosine Similarity ============
+        function calculateSimilarity(a, b) {
+            const CHAR_BEGIN = '\x01', CHAR_END = '\x02';
+            a = CHAR_BEGIN + a + CHAR_END;
+            b = CHAR_BEGIN + b + CHAR_END;
+
+            function gram(s, i) { return s.charCodeAt(i) * 256 + s.charCodeAt(i+1); }
+
+            const fa = new Array(65536).fill(0);
+            const fb = new Array(65536).fill(0);
+            for (let i = 0; i < a.length-1; i++) fa[gram(a,i)]++;
+            for (let i = 0; i < b.length-1; i++) fb[gram(b,i)]++;
+
+            let dot = 0, magA = 0, magB = 0;
+            for (let i = 0; i < a.length-1; i++) {
+                const g = gram(a,i);
+                if (fa[g] > 0) {
+                    magA += fa[g]**2;
+                    if (fb[g] > 0) { dot += fa[g]*fb[g]; magB += fb[g]**2; fb[g]=0; }
+                    fa[g]=0;
+                }
+            }
+            for (let i = 0; i < b.length-1; i++) {
+                const g = gram(b,i);
+                if (fb[g] > 0) { magB += fb[g]**2; fb[g]=0; }
+            }
+            return magA>0 && magB>0 ? Math.sqrt(dot*dot / magA / magB) : 0;
+        }
+
+        function findMostSimilar(target, list) {
+            let best = '', bestSim = -1;
+            for (const p of list) {
+                if (!p.trim()) continue;
+                const sim = calculateSimilarity(target, p.trim());
+                if (sim > bestSim) { bestSim = sim; best = p.trim(); }
+            }
+            return { password: best, similarity: bestSim };
+        }
+
+        // ============ ONNX Model Inference (single edit step) ============
+        async function runModel(srcTokens, trgTokens, length) {
+            const srcArr = new BigInt64Array(srcTokens.map(x => BigInt(x)));
+            const trgArr = new BigInt64Array(trgTokens.map(x => BigInt(x)));
+            const lenArr = new BigInt64Array([BigInt(length)]);
+
+            const feeds = {
+                src: new ort.Tensor('int64', srcArr, [1, srcTokens.length]),
+                trg: new ort.Tensor('int64', trgArr, [1, trgTokens.length]),
+                len: new ort.Tensor('int64', lenArr, [1])
+            };
+
+            const results = await modelSession.run(feeds);
+            return results[modelSession.outputNames[0]];  // shape: [1, num_classes]
+        }
+
+        // ============ Main Calculation ============
+        async function calculateSingleProbability(sourcePwd, targetPwd, stepsDiv) {
+            // Step 1: Convert to key sequences
+            const srcKey = wordToKeyseq(sourcePwd);
+            const trgKey = wordToKeyseq(targetPwd);
+            addStep(stepsDiv, 'Source keyseq', srcKey);
+            addStep(stepsDiv, 'Target keyseq', trgKey);
+
+            // Step 2: Character-level tokenization
+            const srcTok = pw2token(srcKey);
+            const trgTok = pw2token(trgKey);
+            addStep(stepsDiv, 'Source tokens', srcTok.join(','));
+            addStep(stepsDiv, 'Target tokens', trgTok.join(','));
+
+            // Step 3: Compute edit path
+            const path = transformation(srcTok, trgTok);
+            const editSeq = trans2seq(path);
+            addStep(stepsDiv, 'Edit path (ops)', editSeq.join(' '));
+
+            // Step 4: Decompose into per-step pairs
+            const perStep = pass2edit(srcKey, editSeq);
+            addStep(stepsDiv, `Decomposed into ${perStep.length} steps`, '');
+
+            // Step 5: For each step, tokenize and run model
+            let totalProb = 1.0;
+            for (let si = 0; si < perStep.length; si++) {
+                const [orig, curr, op] = perStep[si];
+
+                // Tokenize the step's strings
+                const origTok = pw2token(orig);
+                const currTok = pw2token(curr);
+
+                // Find the valid length (stop at EOS token = 1)
+                let validLen = origTok.indexOf(modelConfig.EOS_TOKEN);
+                if (validLen < 0) validLen = origTok.length;
+                else validLen = validLen + 1; // include EOS
+
+                // Run ONNX model
+                const output = await runModel(origTok, currTok, validLen);
+                const logits = output.data;  // Float32Array of length num_classes
+
+                // Get the edit op token
+                const opSeq = trans2seq([op]);
+                const opTok = seqs2Tokens([opSeq])[0];
+                const opId = opTok[1];  // index 0 is BOS, index 1 is the actual edit token
+
+                // Softmax
+                let maxLogit = -Infinity;
+                for (let k = 0; k < logits.length; k++) {
+                    if (logits[k] > maxLogit) maxLogit = logits[k];
+                }
+                let sumExp = 0;
+                for (let k = 0; k < logits.length; k++) {
+                    sumExp += Math.exp(logits[k] - maxLogit);
+                }
+                const prob = Math.exp(logits[opId] - maxLogit) / sumExp;
+
+                addStep(stepsDiv, `Step ${si+1}: ${opSeq[0]}`, `P=${prob.toFixed(6)}`);
+                totalProb *= prob;
+            }
+
+            addStep(stepsDiv, 'TOTAL Probability', totalProb.toExponential(6));
+            return totalProb;
+        }
+
+        // ============ Strength Score ============
+        function computeStrengthScore(prob, sucProbs, unsucProbs) {
+            if (sucProbs.length === 0 && unsucProbs.length === 0) return null;
+
+            // Find position in successful list
+            let sucPos = sucProbs.findIndex(p => p < prob);
+            if (sucPos < 0) sucPos = sucProbs.length;
+
+            // Find position in unsuccessful list
+            let unsucPos = unsucProbs.findIndex(p => p < prob);
+            if (unsucPos < 0) unsucPos = unsucProbs.length;
+
+            const pSuc = sucProbs.length / (sucProbs.length + unsucProbs.length || 1);
+            const pUnsuc = unsucProbs.length / (sucProbs.length + unsucProbs.length || 1);
+            const cdfSuc = sucPos / (sucProbs.length || 1);
+            const cdfUnsuc = unsucPos / (unsucProbs.length || 1);
+
+            const A = pSuc*cdfSuc;
+            const B = pUnsuc*cdfUnsuc;
+            const denom = A + B;
+            // denom === 0 means the probability is higher than EVERY sample in both
+            // distributions (nothing in the data is that likely) -> the worst case:
+            // treat it as fully crackable (crackRate=100 -> score=0 / Very Weak).
+            // The old code used `|| 1` which silently turned this 0/0 into
+            // crackRate=0 -> score=50 (Moderate), which was wrong for the extreme.
+            const crackRate = denom > 0
+                ? 100 * (A - B) / denom
+                : 100;
+
+            return {
+                crackRate: crackRate,
+                score: Math.max(0, Math.min(100, (100 - crackRate) / 2)),
+                sucPos, sucTotal: sucProbs.length,
+                unsucPos, unsucTotal: unsucProbs.length
+            };
+        }
+
+        function updateStrengthDisplay(prefix, strength) {
+            const scoreEl = document.getElementById('crack-rate-' + prefix);
+            const barEl = document.getElementById('strength-progress-' + prefix);
+            const labelEl = document.getElementById('strength-label-' + prefix);
+            const midScoreEl = document.getElementById('strength-score-' + prefix);
+
+            if (!strength) {
+                if (scoreEl) scoreEl.textContent = 'N/A';
+                if (labelEl) labelEl.textContent = '--';
+                if (barEl) barEl.style.width = '0%';
+                if (midScoreEl) midScoreEl.textContent = '--/100';
+                return;
+            }
+
+            const score = Math.round(strength.score);
+            if (scoreEl) scoreEl.textContent = score;
+            if (barEl) barEl.style.width = score + '%';
+            if (midScoreEl) midScoreEl.textContent = score + '/100';
+
+            let cls, text;
+            if (score >= 75)      { cls='good';      text='Strong'; }
+            else if (score >= 50) { cls='medium';    text='Moderate'; }
+            else if (score >= 25) { cls='weak';      text='Weak'; }
+            else                  { cls='very-weak'; text='Very Weak'; }
+
+            if (barEl) barEl.className = 'progress-fill ' + cls;
+            if (labelEl) { labelEl.textContent = text; labelEl.className = 'strength-label ' + cls; }
+        }
+
+        // ============ UI Helpers ============
+        function addStep(container, label, data) {
+            const div = document.createElement('div');
+            div.innerHTML = `<strong>${label}:</strong> ${data}`;
+            container.appendChild(div);
+            container.scrollTop = container.scrollHeight;
+        }
+        function clearSteps() { document.getElementById('steps-output').innerHTML = ''; }
+
+        // ============ Button Handlers ============
+        document.getElementById('calculate-btn').addEventListener('click', async function() {
+            const sourcePwd = document.getElementById('source-password').value.trim();
+            const targetPwd = document.getElementById('target-password').value.trim();
+
+            if (!targetPwd) { alert('Please enter a target password'); return; }
+            if (!modelSession) { alert('Model not loaded yet. Please wait.'); return; }
+
+            const btn = document.getElementById('calculate-btn');
+            btn.disabled = true;
+            btn.textContent = 'Calculating...';
+            // Hide the status-bar hint after starting a calculation;
+            // it is shown again when a new experiment is loaded.
+            document.getElementById('status-bar').style.display = 'none';
+            document.getElementById('result').style.display = 'none';
+            clearSteps();
+            updateStrengthDisplay('overall', null);
+            updateStrengthDisplay('provided', null);
+            updateStrengthDisplay('matched', null);
+
+            const stepsDiv = document.getElementById('steps-output');
+
+            try {
+                console.time('total');
+
+                // Find most similar password
+                const { password: matchedPwd, similarity } = findMostSimilar(targetPwd, passwordList);
+                addStep(stepsDiv, 'Matched source', matchedPwd);
+                addStep(stepsDiv, 'Similarity', similarity.toFixed(6));
+
+                let providedProb = null, matchedProb = null;
+
+                // Calculate with provided source
+                if (sourcePwd) {
+                    document.getElementById('status-bar').textContent = 'Calculating with provided source...';
+                    providedProb = await calculateSingleProbability(sourcePwd, targetPwd, stepsDiv);
+                }
+
+                // Calculate with matched source
+                document.getElementById('status-bar').textContent = 'Calculating with matched source...';
+                matchedProb = await calculateSingleProbability(matchedPwd, targetPwd, stepsDiv);
+
+                console.timeEnd('total');
+
+                // Compute strengths with the appropriate distributions:
+                // - provided source probability  -> target distributions (successful_tar / unsuccessful_tar)
+                // - matched source probability    -> population distributions (successful_pop / unsuccessful_pop)
+                const providedStrength = providedProb !== null
+                    ? computeStrengthScore(providedProb, successfulTarProbs, unsuccessfulTarProbs)
+                    : null;
+                const matchedStrength = computeStrengthScore(matchedProb, successfulPopProbs, unsuccessfulPopProbs);
+
+                // Overall strength = the minimum (most conservative / weakest) of the two
+                let overallStrength = null;
+                if (providedStrength !== null && matchedStrength !== null) {
+                    overallStrength = providedStrength.score <= matchedStrength.score ? providedStrength : matchedStrength;
+                } else {
+                    overallStrength = providedStrength !== null ? providedStrength : matchedStrength;
+                }
+
+                // Display results
+                document.getElementById('prob-provided').textContent =
+                    providedProb !== null ? providedProb.toExponential(6) : 'N/A';
+                document.getElementById('prob-matched').textContent = matchedProb.toExponential(6);
+                document.getElementById('matched-source').textContent = matchedPwd;
+                document.getElementById('similarity-score').textContent = similarity.toFixed(6);
+
+                const posDiv = document.getElementById('probability-position-info');
+                posDiv.innerHTML = '';
+                if (providedStrength || matchedStrength) {
+                    let html = '<h4>Distribution Position:</h4>';
+                    html += `<p>Matched source prob (pop dist): ${matchedProb.toExponential(6)}</p>`;
+                    if (matchedStrength) {
+                        html += `<p>Pop rank in successful: ${matchedStrength.sucPos} / ${matchedStrength.sucTotal}</p>`;
+                        html += `<p>Pop rank in unsuccessful: ${matchedStrength.unsucPos} / ${matchedStrength.unsucTotal}</p>`;
+                    } else {
+                        html += '<p><em>No pop distribution data (successful_pop.txt / unsuccessful_pop.txt).</em></p>';
+                    }
+                    if (providedProb !== null) {
+                        html += `<p>Provided source prob (tar dist): ${providedProb.toExponential(6)}</p>`;
+                        if (providedStrength) {
+                            html += `<p>Tar rank in successful: ${providedStrength.sucPos} / ${providedStrength.sucTotal}</p>`;
+                            html += `<p>Tar rank in unsuccessful: ${providedStrength.unsucPos} / ${providedStrength.unsucTotal}</p>`;
+                        } else {
+                            html += '<p><em>No tar distribution data (successful_tar.txt / unsuccessful_tar.txt).</em></p>';
+                        }
+                    }
+                    posDiv.innerHTML = html;
+                } else {
+                    posDiv.innerHTML = '<p><em>No distribution data loaded for this experiment.</em></p>';
+                }
+
+                updateStrengthDisplay('overall', overallStrength);
+                updateStrengthDisplay('provided', providedStrength);
+                updateStrengthDisplay('matched', matchedStrength);
+                document.getElementById('result').style.display = 'block';
+                document.getElementById('status-bar').textContent = 'Done.';
+            } catch (error) {
+                console.error('Calculation error:', error);
+                addStep(stepsDiv, 'ERROR', error.message);
+                document.getElementById('status-bar').textContent = 'ERROR: ' + error.message;
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Calculate Probability';
+            }
+        });
+
+        document.getElementById('toggle-steps-btn').addEventListener('click', function() {
+            const div = document.getElementById('calculation-steps');
+            if (div.style.display === 'none' || div.style.display === '') {
+                div.style.display = 'block';
+                this.textContent = 'Hide Steps';
+            } else {
+                div.style.display = 'none';
+                this.textContent = 'Show Steps';
+            }
+        });
+    </script>
+</body>
+</html>

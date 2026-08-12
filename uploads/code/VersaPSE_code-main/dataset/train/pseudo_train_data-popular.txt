@@ -1,0 +1,10 @@
+1	123456	123456!
+1	qwerty	qwerty-
+1	asdfasdf	asdfgh
+1	123123	!@#$%^
+1	asiaccs	AsiaCCS
+1	123123123	123123
+1	password	p@ssword
+1	123991!@#	123991!@#
+1	passwords	mypasswords
+1	hello!	hello123
