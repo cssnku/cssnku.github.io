@@ -56,7 +56,7 @@ Zixuan Ding, Ding Wang*. <strong>HTOTP</strong>: Honey Time-based One-Time Passw
 <br><br>
 Meijia Xu, Ding Wang*. Practical <strong>Two-Factor Authentication Protocol for Real-Time Data Access</strong> in WSNs. IEEE Transactions on Dependable and Secure Computing (<strong>TDSC</strong>), 2025, 22(5): 5215-5230 &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/tdsc25-2fa-wsn.pdf">pdf</a></u> 
 <br><br>
-Ding Wang, Meijia Xu, Qingxuan Wang*. Understanding <strong>Ephemeral Secret Leakage Attacks</strong> in Password-based Multi-factor Authentication for Mobile Devices, IEEE Transactions on Dependable and Secure Computing (<strong>TDSC</strong>), 2025, Doi: 10.1109/TDSC.2025.3646469 &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/esl-tdsc25.pdf">pdf</a></u> &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/esl_supplemental25.pdf">Supplement Materials</a></u>
+Ding Wang, Meijia Xu, Qingxuan Wang*. Understanding <strong>Ephemeral Secret Leakage Attacks</strong> in Password-based Multi-factor Authentication for Mobile Devices, IEEE Transactions on Dependable and Secure Computing (<strong>TDSC</strong>), 2025, 23(3): 4526-4542 &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/esl-tdsc25.pdf">pdf</a></u> &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/esl_supplemental25.pdf">Supplement Materials</a></u>
 <br><br>
 Zixuan Ding, Ding Wang*. Hybrid <strong>Password Hardening Encryption</strong>, IEEE Transactions on Information Forensics and Security (<strong>TIFS</strong>), 2025, vol. 21, pp. 2799-2814 &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/hphe-tifs25.pdf">pdf</a></u>
 <br><br>
@@ -66,7 +66,7 @@ Ding Wang*, Liufu Zhu. <strong>Multi-Factor Authentication on SM2</strong> with
 <br><br>
 Jingyu Yao, Ding Wang*, Xinyang Li. Enhanced Free-form Gesture Authentication Scheme Based on Behavioral Biometric Features[J]. Journal of Cybersecurity, 2025, 3(4): 29-42. (in Chinese; 《网络空间安全科学学报》<strong><span style="color:#5040ae">2025年度优秀论文奖</span></strong>) &nbsp;&nbsp;<u>pdf</u>
 <br><br>
-Shuming Qiu, Yu Liang, Peizhen Hong* and Ding Wang. PUF3FAka: PUF-Enhanced Lightweight Three-Factor Authentication and Key Agreement Protocol for Mobile Edge Computing. IEEE Internet of Things Journal, 2025, Doi: 10.1109/JIOT.2025.3648415
+Shuming Qiu, Yu Liang, Peizhen Hong* and Ding Wang. PUF3FAka: PUF-Enhanced Lightweight Three-Factor Authentication and Key Agreement Protocol for Mobile Edge Computing. IEEE Internet of Things Journal, 2025, 13(7): 14322-14340 &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/PUF3FAka.pdf">pdf</a></u>
 <br><br>
 Fei Duan, Ding Wang*, Chunfu Jia. A Security Analysis of <strong>Honey Vaults</strong>. Proc. 45th IEEE Symposium on Security and Privacy (<strong><span style="color:#5040ae">IEEE S&P 2024</span></strong>), pp. 1424-1442. &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/ieeesp24-final.pdf">pdf</a></u><br>(Full paper, winter cycle acceptance rate: 70/601=11.6%)
 <br><br>
@@ -94,7 +94,7 @@ Jingwei Jiang, Ding Wang*, Guoyin Zhang. <strong>QPause</strong>: Quantum-resis
 <br><br>
 Yanzhao Tian, Lixiang Li, Haipeng Peng, Ding Wang, Yixian Yang. <strong>Honeywords generation mechanism</strong> based on zero-divisor graph sequences, IEEE Transactions on Services Computing (<strong>TSC</strong>), 2023, 16(6): 4567-4579 &nbsp;&nbsp;<a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/tsc23-n1-v1.pdf"><u>pdf</u></a>
 <br><br>
-Guichuan Zhao, Qi Jiang, Ding Wang, Xindi Ma, Xinghua Li. Deep Hashing based <strong>Cancelable Multi-biometric Template</strong> Protection. IEEE Transactions on Dependable and Secure Computing (<strong>TDSC</strong>), 2023, Doi: 10.1109/TDSC.2023.3335961 &nbsp;&nbsp;<u>pdf</u>
+Guichuan Zhao, Qi Jiang, Ding Wang, Xindi Ma, Xinghua Li. Deep Hashing based <strong>Cancelable Multi-biometric Template</strong> Protection. IEEE Transactions on Dependable and Secure Computing (<strong>TDSC</strong>), 2023, 21(4): 3751-3767 &nbsp;&nbsp;<a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/Deep_Hashing_Based_Cancelable_Multi-Biometric_Template_Protection.pdf"><u>pdf</u></a>
 <br><br>
 Ding Wang*, Xuan Shan, Qiying Dong, Yaosheng Shen, Chunfu Jia. <strong>No Single Silver Bullet</strong>: Measuring the Accuracy of Password Strength Meters. Proc. of 32nd USENIX Security Symposium (<strong><span style="color:#5040ae">USENIX Security 2023</span></strong>). pp. 947-964. &nbsp;&nbsp;<u><a href="https://www.youtube.com/watch?v=0vhoAaqGYV8">video</a></u> &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/usenix23-n1-v5.pdf">pdf</a></u>
 <br><br>
@@ -149,7 +149,7 @@ Zengpeng Li, Chunguang Ma, Ding Wang*. <strong>Leakage Resilient Leveled</stron
 <br><br>
 Meijia Xu, Ding Wang*, Qingxuan Wang, Qiaowen Jia. Understanding security failures of anonymous authentication schemes for cloud environments.<strong> Journal of Systems Architecture</strong>, 118 (2021), 102206: 1-10. &nbsp;&nbsp;<a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/jsa21-wd1.pdf"><u>pdf</u></a>
 <br><br>
-Qin Qiu, Ding Wang*, Xuetao Du, Shengquan Yu, Shenglan Liu, Bei Zhao. Security Standards and Measures for Massive IoT in the 5G Era.<strong> Mobile Networks and Applications,</strong> 2021, https://doi.org/10.1007/s11036-021-01841-2 &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/monet21.pdf">pdf</a></u>
+Qin Qiu, Ding Wang*, Xuetao Du, Shengquan Yu, Shenglan Liu, Bei Zhao. Security Standards and Measures for Massive IoT in the 5G Era.<strong> Mobile Networks and Applications,</strong> 2021, 27: 392-403 &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/monet21.pdf">pdf</a></u>
 <br><br>
 Ding Wang, Shuhong Hong, Qingxuan Wang*. <strong>Revisiting a Multifactor Authentication Scheme</strong> in Industrial IoT. <strong>Security and Communication Networks</strong>, Volume 2021, Article ID 9995832, 7 pages, Doi: 10.1155/2021/9995832 &nbsp;&nbsp;<a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/scn21-wd1.pdf"><u>pdf</u></a>
 <br><br>
