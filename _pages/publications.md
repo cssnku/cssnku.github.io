@@ -9,7 +9,7 @@ permalink: /publications/
 <div style="height: 30px; overflow: hidden; width: 100%;"></div>
 <div class="publication-list" markdown="0">
 
-Yunkai Zou, Chi Zhang, Yuxuan Wu, Ding Wang*. <strong>Targeted Guessing</strong> Using Multiple Leaked Passwords. Proc. of the 34th Network and Distributed System Security Symposium (<strong><span style="color:#5040ae">NDSS 2027</span></strong>), Accepted. &nbsp;&nbsp;<u><a href="">pdf</a></u><br>
+Yunkai Zou, Chi Zhang, Yuxuan Wu, Ding Wang*. <strong>Targeted Guessing</strong> Using Multiple Leaked Passwords. Proc. of the 34th Network and Distributed System Security Symposium (<strong><span style="color:#5040ae">NDSS 2027</span></strong>), Accepted. &nbsp;&nbsp;<u><a href="">pdf</a></u>
 <br><br>
 Yihe Duan, Ding Wang*, Yutong Li. Credential Extraction Attacks Against <strong>Compromised Credential Checking Services</strong> of Password Managers. Proc. of 47th IEEE Symposium on Security and Privacy (<strong><span style="color:#5040ae">IEEE S&P 2026</span></strong>), pp. 2977-2996. &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/ieeesp26-pm-full.pdf">pdf</a></u><br>(Full paper, acceptance rate: 118/925=12.8%) 
 <br><br>
@@ -41,7 +41,6 @@ Yanduo Fu, Qingxuan Wang*, Ding Wang. An Empirical Measurement Study of <strong>
 <br><br>
 Mi Song, Ding Wang*, Guanling Li, Zhen Li. Verifiable <strong>Compromised Credential Checking</strong>. IEEE Transactions on Information Forensics and Security (<strong>TIFS</strong>), 2026, 21: 7376-7391. &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/verC3-tifs26-v1.pdf">pdf</a></u>
 <br><br>
-
 Yunkai Zou, Maoxiang An, Ding Wang*. Password Guessing Using <strong>Large Language Models</strong>. Proc. of 34th USENIX Security Symposium (<strong><span style="color:#5040ae">USENIX Security 2025</span></strong>), pp. 7799-7818. <a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/passllm-full.pdf"><u>pdf</u></a><br> (Full paper, acceptance rate: 407/2385=17.1%) 
 <br><br>
 Zhenduo Hou, Tingwei Fan, Fei Duan, Ding Wang*. How to Design Secure <strong>Honey Vault</strong> Schemes. In Proceedings of the 32nd ACM Conference on Computer and Communications Security (<strong><span style="color:#5040ae">ACM CCS 2025</span></strong>), pp. 4319-4333. &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/he-vault-ccs25-fullv1.pdf">pdf </a></u><br> (Full paper, acceptance rate: 316/2186=14.5%) 
