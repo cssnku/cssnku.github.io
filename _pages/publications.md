@@ -35,6 +35,8 @@ Ding Wang, Tongxin Wei, Zhenduo Hou*. On the User Friendliness of <strong>Passw
 <br><br>
 Yifei Zhang, Zhenduo Hou*, Ding Wang. VersaPSE: Versatile <strong>Password Strength Evaluation</strong> Using Continual Learning. International Symposium on Research in Attacks, Intrusions and Defenses (<strong>RAID 2026</strong>), Accepted. &nbsp;&nbsp;<u><a href="https://github.com/cssnku/cssnku.github.io/tree/gh-pages/uploads/code/VersaPSE_code-main">codes</a></u> &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/raid26-final26.pdf">pdf</a></u>
 <br><br>
+Yanduo Fu, Qingxuan Wang*, Ding Wang. An Empirical Measurement Study of <strong>Authentication Mechanisms</strong> in <strong>Cloud-Based Password Managers</strong>. The 28th International Conference on Information and Communications Security (<strong>ICICS 2026</strong>). Accepted. &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/ICICS2026_5416_CameraReady.pdf">pdf</a></u>
+<br><br>
 Mi Song, Ding Wang*, Guanling Li, Zhen Li. Verifiable <strong>Compromised Credential Checking</strong>. IEEE Transactions on Information Forensics and Security (<strong>TIFS</strong>), 2026, 21: 7376-7391. &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/verC3-tifs26-v1.pdf">pdf</a></u>
 <br><br>
 
