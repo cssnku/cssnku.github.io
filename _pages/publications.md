@@ -23,8 +23,8 @@ Tongxin Wei, Ding Wang*. Unveiling Privacy Issues in <strong>Large Language Mod
 <br><br>
 Liufu Zhu, Ding Wang*. <strong>UC-Secure Multi-Factor Authentication</strong> with Dynamic Password Recovery and Fine-Grained Access Control. IEEE Transactions on Information Forensics and Security (<strong>TIFS</strong>), 2026, 21: 5659-5674. &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/mfa-pr-tifs26.pdf">pdf</a></u>
 <br><br>
-Liufu Zhu, Peizhen Hong*, Ding Wang. Robust PUF-Based Multi-Factor Authentication: Resist Machine Learning Attacks and Support Account Recovery and Reset (IEEE TIFS), submitted. 2026 &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/T-IFS-28523-2026-Supplemental electronic materials-full version.pdf">Appendix</a></u>
-<br><br>
+<!-- Liufu Zhu, Peizhen Hong*, Ding Wang. Robust PUF-Based Multi-Factor Authentication: Resist Machine Learning Attacks and Support Account Recovery and Reset (IEEE TIFS), submitted. 2026 &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/T-IFS-28523-2026-Supplemental electronic materials-full version.pdf">Appendix</a></u>
+<br><br> -->
 Jingyu Yao, Ding Wang*. StrokePIN: Enhancing PIN Authentication with <strong>Keystroke Dynamics</strong> for Mobile Devices. IEEE Transactions on Dependable and Secure Computing (<strong>TDSC</strong>), 2026, 23(3): 6797-6814. &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/strokepin-tdsc26.pdf">pdf</a></u>
 <br><br>
 Mingming Hu, Ding Wang*, Daojun Han, Jingtao Guo, Bibo Tu*. Privacy-Preserving <strong>Continuous Authentication</strong> of Smartphone Users via Secret Sharing, IEEE Transactions on Dependable and Secure Computing (<strong>TDSC</strong>), 2026, 23(4): 8093-8110. &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/ppca-tdsc26.pdf">pdf</a></u>
