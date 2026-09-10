@@ -9,7 +9,7 @@ permalink: /publications/
 <div style="height: 30px; overflow: hidden; width: 100%;"></div>
 <div class="publication-list" markdown="0">
 
-Yunkai Zou, Chi Zhang, Yuxuan Wu, Ding Wang*. <strong>Targeted Guessing</strong> Using Multiple Leaked Passwords. Proc. of the 34th Network and Distributed System Security Symposium (<strong><span style="color:#5040ae">NDSS 2027</span></strong>), Accepted. &nbsp;&nbsp;<u><a href="">pdf</a></u>
+Yunkai Zou, Chi Zhang, Yuxuan Wu, Ding Wang*. <strong>Targeted Guessing</strong> Using Multiple Leaked Passwords. Proc. of the 34th Network and Distributed System Security Symposium (<strong><span style="color:#5040ae">NDSS 2027</span></strong>), Accepted. &nbsp;&nbsp;<u><a href="">pdf</a></u><br>(Full paper, acceptance rate: 38/1153=3.2%) 
 <br><br>
 Yihe Duan, Ding Wang*, Yutong Li. Credential Extraction Attacks Against <strong>Compromised Credential Checking Services</strong> of Password Managers. Proc. of 47th IEEE Symposium on Security and Privacy (<strong><span style="color:#5040ae">IEEE S&P 2026</span></strong>), pp. 2977-2996. &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/ieeesp26-pm-full.pdf">pdf</a></u><br>(Full paper, acceptance rate: 118/925=12.8%) 
 <br><br>
@@ -17,7 +17,7 @@ Zhen Li, Ding Wang*. <strong>Targeted Password Guessing</strong> Using k-Nearest
 <br><br>
 Yunkai Zou, Ding Wang*, Fei Duan. Success Rates Doubled with Only One Character: <strong>Mask Password Guessing</strong>. Proc. of the 33rd Network and Distributed System Security Symposium (<strong><span style="color:#5040ae">NDSS 2026</span></strong>), pp. 1-25. &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/mask-attack-ndss26-fullv1.pdf">pdf</a></u><br> (Full paper, acceptance rate: 152/950=16.0%) 
 <br><br>
-Mi Song, Ding Wang*. A password-based secure data transmission scheme for <strong>large language model agents</strong> (面向大语言模型智能体的口令基数据安全传输方案). <strong>SCIENTIA SINICA</strong> Informationis (<strong>中国科学: 信息科学</strong>), 2026, Doi: 10.1360/SSI-2026-0175. (In Chinese) &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/A_password-based_secure_data_transmission_scheme_for_large_language_model_agents-ssi26.pdf">pdf</a></u>
+Mi Song, Ding Wang*. A password-based secure data transmission scheme for <strong>large language model agents</strong> (面向大语言模型智能体的口令基数据安全传输方案). <strong>SCIENTIA SINICA</strong> Informationis (<strong>中国科学: 信息科学</strong>), 2026, Doi: 10.1360/SSI-2026-0175. (In Chinese) &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/agents-ssi26.pdf">pdf</a></u>
 <br><br>
 Tongxin Wei, Ding Wang*. Unveiling Privacy Issues in <strong>Large Language Models</strong>: Insights from Real-world Application Scenarios (揭示大语言模型中的隐私问题: 来自真实应用场景的见解). <strong>SCIENCE CHINA</strong>: Information Sciences (<strong>中国科学: 信息科学</strong>), 2026, 56(6): 1390-1406. (In Chinese) &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/llm-privacy-scis26.pdf">pdf</a></u>
 <br><br>
@@ -29,7 +29,7 @@ Jingyu Yao, Ding Wang*. StrokePIN: Enhancing PIN Authentication with <strong>Key
 <br><br>
 Mingming Hu, Ding Wang*, Daojun Han, Jingtao Guo, Bibo Tu*. Privacy-Preserving <strong>Continuous Authentication</strong> of Smartphone Users via Secret Sharing, IEEE Transactions on Dependable and Secure Computing (<strong>TDSC</strong>), 2026, 23(4): 8093-8110. &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/ppca-tdsc26.pdf">pdf</a></u>
 <br><br>
-Ding Wang, Tingwei Fan, Fei Duan, Zhenduo Hou*. On the Insecurity of Internally Sampled <strong>Honeyword</strong> Schemes. IEEE Transactions on Information Forensics and Security (TIFS), 2026, 21: 4594-4609. &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/insecurity-hw-tifs26.pdf">pdf</a></u>
+Ding Wang, Tingwei Fan, Fei Duan, Zhenduo Hou*. On the Insecurity of Internally Sampled <strong>Honeyword</strong> Schemes. IEEE Transactions on Information Forensics and Security (<strong>TIFS</strong>), 2026, 21: 4594-4609. &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/insecurity-hw-tifs26.pdf">pdf</a></u>
 <br><br>
 Zixuan Ding, Yihe Duan, Ding Wang*. HP-OTP: <strong>One-Time Password</strong> Scheme based on Hardened Password, IEEE Transactions on Dependable and Secure Computing (<strong>TDSC</strong>), 2026, 23(2): 3962-3978. &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/tdsc26-hpotp.pdf">pdf</a></u>
 <br><br>
