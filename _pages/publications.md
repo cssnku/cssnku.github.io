@@ -9,7 +9,7 @@ permalink: /publications/
 <div style="height: 30px; overflow: hidden; width: 100%;"></div>
 <div class="publication-list" markdown="0">
 
-Zhenduo Hou, Ding Wang*, Yifei Zhang. <strong>Password Distribution</strong> and Its Impacts on <strong>Offline Password Guessing</strong> Economics. Proc. of the 34th Network and Distributed System Security Symposium (<strong><span style="color:#5040ae">NDSS 2027</span></strong>), Accepted. &nbsp;&nbsp;<u><a href="">pdf</a></u><br>(Full paper, acceptance rate: 151/1153=13.10%) 
+Zhenduo Hou, Ding Wang*, Yifei Zhang. <strong>Password Distribution</strong> and Its Impacts on <strong>Offline Password Guessing</strong> Economics. Proc. of the 34th Network and Distributed System Security Symposium (<strong><span style="color:#5040ae">NDSS 2027</span></strong>), Accepted. &nbsp;&nbsp;<u><a href="">pdf</a></u><br>(Full paper, acceptance rate: 152/1153=13.18%) 
 <br><br>
 Yunkai Zou, Chi Zhang, Yuxuan Wu, Ding Wang*. <strong>Targeted Guessing</strong> Using Multiple Leaked Passwords. Proc. of the 34th Network and Distributed System Security Symposium (<strong><span style="color:#5040ae">NDSS 2027</span></strong>), Accepted. &nbsp;&nbsp;<u><a href="">pdf</a></u><br>(Full paper, acceptance rate: 38/1153=3.2%) 
 <br><br>
