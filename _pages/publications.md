@@ -9,9 +9,9 @@ permalink: /publications/
 <div style="height: 30px; overflow: hidden; width: 100%;"></div>
 <div class="publication-list" markdown="0">
 
-Zhenduo Hou, Ding Wang*, Yifei Zhang. <strong>Password Distribution</strong> and Its Impacts on Offline Password Guessing Economics. Proc. of the 34th Network and Distributed System Security Symposium (<strong><span style="color:#5040ae">NDSS 2027</span></strong>), Accepted. <br>(Full paper, acceptance rate: 152/1153=13.2%) 
+Zhenduo Hou, Ding Wang*, Yifei Zhang. <strong>Password Distribution</strong> and Its Impacts on Offline Password Guessing Economics. Proc. of the 34th Network and Distributed System Security Symposium (<strong><span style="color:#5040ae">NDSS 2027</span></strong>), Accepted. <br>(Full paper, acceptance rate: 157/1153=13.6%) 
 <br><br>
-Yunkai Zou, Chi Zhang, Yuxuan Wu, Ding Wang*. <strong>Targeted Guessing</strong> Using Multiple Leaked Passwords. Proc. of the 34th Network and Distributed System Security Symposium (<strong><span style="color:#5040ae">NDSS 2027</span></strong>), Accepted. <br>(Full paper, acceptance rate: 152/1153=13.2%) 
+Yunkai Zou, Chi Zhang, Yuxuan Wu, Ding Wang*. <strong>Targeted Guessing</strong> Using Multiple Leaked Passwords. Proc. of the 34th Network and Distributed System Security Symposium (<strong><span style="color:#5040ae">NDSS 2027</span></strong>), Accepted. <br>(Full paper, acceptance rate: 157/1153=13.6%) 
 <br><br>
 Yihe Duan, Ding Wang*, Yutong Li. Credential Extraction Attacks Against <strong>Compromised Credential Checking Services</strong> of Password Managers. Proc. of 47th IEEE Symposium on Security and Privacy (<strong><span style="color:#5040ae">IEEE S&P 2026</span></strong>), pp. 2977-2996. &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/ieeesp26-pm-full.pdf">pdf</a></u><br>(Full paper, acceptance rate: 118/925=12.8%) 
 <br><br>
