@@ -23,6 +23,10 @@ Mi Song, Ding Wang*. A password-based secure data transmission scheme for <stron
 <br><br>
 Tongxin Wei, Ding Wang*. Unveiling Privacy Issues in <strong>Large Language Models</strong>: Insights from Real-world Application Scenarios (揭示大语言模型中的隐私问题: 来自真实应用场景的见解). <strong>SCIENCE CHINA</strong>: Information Sciences (<strong>中国科学: 信息科学</strong>), 2026, 56(6): 1390-1406. (In Chinese) &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/llm-privacy-scis26-final.pdf">pdf</a></u>
 <br><br>
+Tongxin Wei, Ding Wang*. Risk-Based Dynamic Authentication. Chinese Journal of Computers (in Chinese), 2026. &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/cjc26-v9.pdf">pdf</a></u><br> (魏同心, 汪定*. 基于风险的动态身份认证方案研究. 计算机学报, 2026)
+<br><br>
+Jingyu Yao, Ding Wang*. LuTBA: Lightweight and Updatable <strong>Touch-based Authentication</strong> Scheme for Mobile Devices. IEEE Transactions on Information Forensics and Security (<strong>TIFS</strong>), 2026, Doi: 10.1109/TIFS.2026.3744613 &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/LuTBA-tifs26.pdf">pdf</a></u>
+<br><br>
 Liufu Zhu, Ding Wang*. <strong>UC-Secure Multi-Factor Authentication</strong> with Dynamic Password Recovery and Fine-Grained Access Control. IEEE Transactions on Information Forensics and Security (<strong>TIFS</strong>), 2026, 21: 5659-5674. &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/mfa-pr-tifs26-final.pdf">pdf</a></u>
 <br><br>
 <!-- Liufu Zhu, Peizhen Hong*, Ding Wang. Robust PUF-Based Multi-Factor Authentication: Resist Machine Learning Attacks and Support Account Recovery and Reset (IEEE TIFS), submitted. 2026 &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/T-IFS-28523-2026-Supplemental electronic materials-full version.pdf">Appendix</a></u>
@@ -37,11 +41,11 @@ Zixuan Ding, Yihe Duan, Ding Wang*. HP-OTP: <strong>One-Time Password</strong> 
 <br><br>
 Ding Wang, Tongxin Wei, Zhenduo Hou*. On the User Friendliness of <strong>Password Creation Policy Designs</strong> in the Wild, SCIENCE CHINA: Information Sciences (<strong>SCIS</strong>), 2026, 69(4), Article No.142105, pp. 1-16 &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/scis25-n1-final.pdf">pdf</a></u>
 <br><br>
+Mi Song, Ding Wang*, Guanling Li, Zhen Li. Verifiable <strong>Compromised Credential Checking</strong>. IEEE Transactions on Information Forensics and Security (<strong>TIFS</strong>), 2026, 21: 7376-7391. &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/verC3-tifs26-final.pdf">pdf</a></u>
+<br><br>
 Yifei Zhang, Zhenduo Hou*, Ding Wang. VersaPSE: Versatile <strong>Password Strength Evaluation</strong> Using Continual Learning. International Symposium on Research in Attacks, Intrusions and Defenses (<strong>RAID 2026</strong>), Accepted. &nbsp;&nbsp;<u><a href="https://github.com/cssnku/cssnku.github.io/tree/gh-pages/uploads/code/VersaPSE_code-main">codes</a></u> &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/raid26-final26.pdf">pdf</a></u>
 <br><br>
 Yanduo Fu, Qingxuan Wang*, Ding Wang. An Empirical Measurement Study of <strong>Authentication Mechanisms</strong> in <strong>Cloud-Based Password Managers</strong>. The 28th International Conference on Information and Communications Security (<strong>ICICS 2026</strong>). Accepted. &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/ICICS2026_5416_CameraReady.pdf">pdf</a></u>
-<br><br>
-Mi Song, Ding Wang*, Guanling Li, Zhen Li. Verifiable <strong>Compromised Credential Checking</strong>. IEEE Transactions on Information Forensics and Security (<strong>TIFS</strong>), 2026, 21: 7376-7391. &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/verC3-tifs26-final.pdf">pdf</a></u>
 <br><br>
 Yunkai Zou, Maoxiang An, Ding Wang*. Password Guessing Using <strong>Large Language Models</strong>. Proc. of 34th USENIX Security Symposium (<strong><span style="color:#5040ae">USENIX Security 2025</span></strong>), pp. 7799-7818. <a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/passllm-full.pdf"><u>pdf</u></a><br> (Full paper, acceptance rate: 407/2385=17.1%) 
 <br><br>
