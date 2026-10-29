@@ -274,8 +274,8 @@ These papers can be categorized into seven groups according to their domains: Pa
 2.242 [IEEE Access'17] "On the Design of Provably Secure Lightweight Remote User Authentication Scheme for Mobile Cloud Computing Services", https://ieeexplore.ieee.org/abstract/document/8076841
 2.243 [IEEE Access'17] "Provably Secure and Efficient Authentication Protocol for Roaming Service in Global Mobility Networks", https://ieeexplore.ieee.org/abstract/document/8107484
 2.244 [Sensors'17] "An Enhanced Three-Factor User Authentication Scheme Using Elliptic Curve Cryptosystem for Wireless Sensor Networks", https://www.mdpi.com/1424-8220/17/12/2946/htm
-2.245 [IEEE TIFS'26] "Post-Quantum Secure Lattice-Based Lightweight Authentication Scheme for Energy Internet-Based V2G Communication", https://doi.org/10.1109/TIFS.2026.3723114   [only in B]
-2.246 [IEEE TCE'26] "Provably Secure PUF-enabled Lattice-based Authentication for Post-Quantum Industrial Internet of Things in the Era of Industry 4.0", https://doi.org/10.1109/TCE.2026.3723967   [only in B]
+2.245 [IEEE TIFS'26] "Post-Quantum Secure Lattice-Based Lightweight Authentication Scheme for Energy Internet-Based V2G Communication", https://doi.org/10.1109/TIFS.2026.3723114
+2.246 [IEEE TCE'26] "Provably Secure PUF-enabled Lattice-based Authentication for Post-Quantum Industrial Internet of Things in the Era of Industry 4.0", https://doi.org/10.1109/TCE.2026.3723967
 
 ### 3 Password policies   (3 papers)
 
