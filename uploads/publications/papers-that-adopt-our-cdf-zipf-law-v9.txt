@@ -285,13 +285,14 @@ These papers can be categorized into seven groups according to their domains: Pa
 
 ### 4 Password leakage detection   (7 papers)
 
-4.1 [IEEE S&P'22] "How to Attack and Generate Honeywords", https://www.computer.org/csdl/proceedings-article/sp/2022/131600a489/1wKCexo0aoE
-4.2 [USENIX SEC'22] "Might I Get Pwned: A Second Generation Compromised Credential Checking Service", https://pages.cs.wisc.edu/~chatterjee/papers/usenix22-pal.pdf
-4.3 [USENIX SEC'20] "Detecting Stuffing of a User's Credentials at Her Own Account", https://www.usenix.org/system/files/sec20-wang.pdf
-4.4 [NDSS'18] "A Security Analysis of Honeyword", http://wangdingg.weebly.com/uploads/2/0/3/6/20366987/ndss18final_fullv9.pdf
-4.5 [IEEE TIFS'26] "On the Insecurity of Internally Sampled Honeyword Schemes", https://ieeexplore.ieee.org/document/11494073
-4.6 [Arxiv'23] "Reveal the Mathematical Structures of Honeyword Security Metrics", https://arxiv.org/abs/2311.10960
-4.7 [ACM CSUR'22] "Honeyword-based Authentication Techniques for Protecting Passwords: A Survey", https://dl.acm.org/doi/abs/10.1145/3552431
+4.1 [IEEE S&P'26] "Bayesian Advantage of Re-Identification Attack in the Shuffle Model", https://ieeexplore.ieee.org/abstract/document/11662343
+4.2 [IEEE S&P'22] "How to Attack and Generate Honeywords", https://www.computer.org/csdl/proceedings-article/sp/2022/131600a489/1wKCexo0aoE
+4.3 [USENIX SEC'22] "Might I Get Pwned: A Second Generation Compromised Credential Checking Service", https://pages.cs.wisc.edu/~chatterjee/papers/usenix22-pal.pdf
+4.4 [USENIX SEC'20] "Detecting Stuffing of a User's Credentials at Her Own Account", https://www.usenix.org/system/files/sec20-wang.pdf
+4.5 [NDSS'18] "A Security Analysis of Honeyword", http://wangdingg.weebly.com/uploads/2/0/3/6/20366987/ndss18final_fullv9.pdf
+4.6 [IEEE TIFS'26] "On the Insecurity of Internally Sampled Honeyword Schemes", https://ieeexplore.ieee.org/document/11494073
+4.7 [Arxiv'23] "Reveal the Mathematical Structures of Honeyword Security Metrics", https://arxiv.org/abs/2311.10960
+4.8 [ACM CSUR'22] "Honeyword-based Authentication Techniques for Protecting Passwords: A Survey", https://dl.acm.org/doi/abs/10.1145/3552431
 
 ### 5 Password hashing algorithms   (4 papers)
 
