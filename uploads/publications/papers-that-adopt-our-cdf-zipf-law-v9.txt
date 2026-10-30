@@ -1,4 +1,4 @@
-As of October 2026, a total of 302 published papers have cited and adopted Wang et al.'s CDF-Zipf model (and/or PDF-Zipf model).
+As of October 2026, a total of 303 published papers have cited and adopted Wang et al.'s CDF-Zipf model (and/or PDF-Zipf model).
 These papers can be categorized into seven groups according to their domains: Password cracking, Password-based cryptographic protocols, Password Policies, Password Leakage detection, Password Hashing algorithms, Password encryption, and Password characteristic analysis. The details are as follows:
 
 
@@ -283,7 +283,7 @@ These papers can be categorized into seven groups according to their domains: Pa
 3.2 [COSE'24] "Decoding developer password patterns: A comparative analysis of password extraction and selection practices", https://www.sciencedirect.com/science/article/pii/S0167404824002797
 3.3 [J. Cybersecurity'23] "A Generator Framework for Password Policy Based on Frequency and Entropy", http://www.journalofcybersec.com/CN/Y2023/V2/I2/73
 
-### 4 Password leakage detection   (7 papers)
+### 4 Password leakage detection   (8 papers)
 
 4.1 [IEEE S&P'26] "Bayesian Advantage of Re-Identification Attack in the Shuffle Model", https://ieeexplore.ieee.org/abstract/document/11662343
 4.2 [IEEE S&P'22] "How to Attack and Generate Honeywords", https://www.computer.org/csdl/proceedings-article/sp/2022/131600a489/1wKCexo0aoE
