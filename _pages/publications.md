@@ -9,9 +9,9 @@ permalink: /publications/
 <div style="height: 30px; overflow: hidden; width: 100%;"></div>
 <div class="publication-list" markdown="0">
 
-Zhenduo Hou, Ding Wang*, Yifei Zhang. <strong>Password Distribution</strong> and Its Impacts on Offline Password Guessing Economics. Proc. of the 34th Network and Distributed System Security Symposium (<strong><span style="color:#5040ae">NDSS 2027</span></strong>), Accepted. <br>(Full paper, acceptance rate: 157/1153=13.6%) 
+Zhenduo Hou, Ding Wang*, Yifei Zhang. <strong>Password Distribution</strong> and Its Impacts on Offline Password Guessing Economics. Proc. of the 34th Network and Distributed System Security Symposium (<strong><span style="color:#5040ae">NDSS 2027</span></strong>), Accepted. &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/NDSS27_Zipf-v2.pdf">pdf</a></u><br>(Full paper, acceptance rate: 157/1153=13.6%) 
 <br><br>
-Yunkai Zou, Chi Zhang, Yuxuan Wu, Ding Wang*. <strong>Targeted Guessing</strong> Using Multiple Leaked Passwords. Proc. of the 34th Network and Distributed System Security Symposium (<strong><span style="color:#5040ae">NDSS 2027</span></strong>), Accepted. <br>(Full paper, acceptance rate: 157/1153=13.6%) 
+Yunkai Zou, Chi Zhang, Yuxuan Wu, Ding Wang*. <strong>Targeted Guessing</strong> Using Multiple Leaked Passwords. Proc. of the 34th Network and Distributed System Security Symposium (<strong><span style="color:#5040ae">NDSS 2027</span></strong>), Accepted. &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/NDSS27-PolyGuess-v4.pdf">pdf</a></u><br>(Full paper, acceptance rate: 157/1153=13.6%) 
 <br><br>
 Yihe Duan, Ding Wang*, Yutong Li. Credential Extraction Attacks Against <strong>Compromised Credential Checking Services</strong> of Password Managers. Proc. of 47th IEEE Symposium on Security and Privacy (<strong><span style="color:#5040ae">IEEE S&P 2026</span></strong>), pp. 2977-2996. &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/ieeesp26-pm-full.pdf">pdf</a></u><br>(Full paper, acceptance rate: 118/925=12.8%) 
 <br><br>
@@ -25,7 +25,7 @@ Tongxin Wei, Ding Wang*. Unveiling Privacy Issues in <strong>Large Language Mod
 <br><br>
 Tongxin Wei, Ding Wang*. Risk-Based Dynamic Authentication. Chinese Journal of Computers (in Chinese), 2026. &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/cjc26-v9.pdf">pdf</a></u><br> (魏同心, 汪定*. 基于风险的动态身份认证方案研究. 计算机学报, 2026)
 <br><br>
-Jingyu Yao, Ding Wang*. LuTBA: Lightweight and Updatable <strong>Touch-based Authentication</strong> Scheme for Mobile Devices. IEEE Transactions on Information Forensics and Security (<strong>TIFS</strong>), 2026, Doi: 10.1109/TIFS.2026.3744613 &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/LuTBA-tifs26.pdf">pdf</a></u>
+Jingyu Yao, Ding Wang*. LuTBA: Lightweight and Updatable <strong>Touch-based Authentication</strong> Scheme for Mobile Devices. IEEE Transactions on Information Forensics and Security (<strong>TIFS</strong>), 2026, Doi: 10.1109/TIFS.2026.3744613 &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/TIFS2026-LuTBA.pdf">pdf</a></u>
 <br><br>
 Liufu Zhu, Ding Wang*. <strong>UC-Secure Multi-Factor Authentication</strong> with Dynamic Password Recovery and Fine-Grained Access Control. IEEE Transactions on Information Forensics and Security (<strong>TIFS</strong>), 2026, 21: 5659-5674. &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/mfa-pr-tifs26-final.pdf">pdf</a></u>
 <br><br>
