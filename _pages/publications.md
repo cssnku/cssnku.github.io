@@ -19,7 +19,7 @@ Zhen Li, Ding Wang*. <strong>Targeted Password Guessing</strong> Using k-Nearest
 <br><br>
 Yunkai Zou, Ding Wang*, Fei Duan. Success Rates Doubled with Only One Character: <strong>Mask Password Guessing</strong>. Proc. of the 33rd Network and Distributed System Security Symposium (<strong><span style="color:#5040ae">NDSS 2026</span></strong>), pp. 1-25. &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/mask-attack-ndss26-fullv1.pdf">pdf</a></u><br> (Full paper, acceptance rate: 152/950=16.0%) 
 <br><br>
-Jingwei Jiang and Ding Wang*. <strong>qaPAKE</strong>: Quantum-Safe Anonymous Password-Only Authenticated Key Exchange for Mobile Devices. IEEE Transactions on Dependable and Secure Computing(<strong>TDSC</strong>), 2026, Accepted.
+Jingwei Jiang and Ding Wang*. <strong>qaPAKE</strong>: Quantum-Safe Anonymous Password-Only Authenticated Key Exchange for Mobile Devices. IEEE Transactions on Dependable and Secure Computing(<strong>TDSC</strong>), 2026, Doi: 10.1109/TDSC.2026.3753541.&nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/TDSC26-qaPAKE.pdf">pdf</a></u>
 <br><br>
 Mi Song, Ding Wang*. A password-based secure data transmission scheme for <strong>large language model agents</strong> (面向大语言模型智能体的口令基数据安全传输方案). <strong>SCIENTIA SINICA</strong> Informationis (<strong>中国科学: 信息科学</strong>), 2026, Doi: 10.1360/SSI-2026-0175. (In Chinese) &nbsp;&nbsp;<u><a href="{{ site.url }}{{ site.baseurl }}/uploads/publications/agents-ssi26.pdf">pdf</a></u>
 <br><br>
